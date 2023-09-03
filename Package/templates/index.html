@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block body %}
+<h1>Добро пожаловать на страницу проекта МиниБанк!</h1><br><br>
+<h3>Вы можете авторизоваться если зарегистрированы или перейти на Страницу регистрации</h3>
+<a href="{{ url_for('registration') }}">Страница регистрации</a><br><br><br>
+<h4>Для авторизации введите E-mail и Пароль</h4>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+  <form method="POST">
+  <label for="email">E-mail :</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="password">Пароль:</label>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Войти в МиниБанк">
+ </form>
+{% endblock %}

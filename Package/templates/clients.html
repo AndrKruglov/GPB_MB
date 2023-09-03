@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница клиента
+{% endblock %}
+
+{% block body %}
+<h1>Здесь отображаются ваши данные и счета</h1><br><br>
+<h3>Пока пустое место</h3>
+<a href="{{ url_for('registration') }}">Страница регистрации</a><br><br><br>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ФИО</th>
+      <th>Электронная почта</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for client in clients %}
+    <tr>
+      <td>{{ client.clients_ID }}</td>
+      <td>{{ client.fio }}</td>
+      <td>{{ client.e_mail }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

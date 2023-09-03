@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница регистрации
+{% endblock %}
+
+{% block body %}
+<h1>На этой страние Вы можете зарегистрироваться как клиент проекта МиниБанк</h1><br><br>
+<h4>Для регистрации введите ФИО, E-mail, Пароль и нажмите "Зарегистрироваться"</h4>
+  <form method='POST'>
+    <label for="fio">ФИО  :</label>
+  <input type="text" id="fio" name="fio"><br><br>
+  <label for="email">E-mail :</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="password">Пароль:</label>
+  <input type="text" id="password" name="password"><br><br>
+  <input type="submit" value="Зарегистрироваться">
+ </form>
+{% endblock %}
