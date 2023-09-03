@@ -6,11 +6,13 @@ from Package import app, db
 from Package.models import Clients
 
 
+# Обработка Стартовой страницы сайта
 @app.route('/', methods=['GET'])
 def hello_world():
     return render_template('hello.html')
 
 
+# Обработка страницы Логин сайта
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     email = request.form.get('email')
@@ -31,6 +33,7 @@ def login():
     return render_template("index.html")
 
 
+# Обработка страницы Регистрация сайта
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
     if request.method == 'POST':
@@ -50,6 +53,7 @@ def registration():
         return render_template("registration.html")
 
 
+# Обработка страницы Вывода данных всех Клиентов из БД
 @app.route('/clients', methods=['GET'])
 def get_clients():
     clients = Clients.query.all()
